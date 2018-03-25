@@ -1,0 +1,12 @@
+<% include ../partials/header %>
+<div class="container">
+    <div class="bloque">
+        <h3><%= nombre %>! Elije tu pokemon!</h3>
+        <p><%= mensaje %></p>
+        <ul>
+            <% for(let i=0 ; i<pokemon.length ; i++){ %>
+                <li><a href="/<%= nombre %>/pokemon/<%= pokemon[i].nombre %>"><%= pokmemon[i].nombre %></a></li>
+            <% } %>
+        </ul>
+    </div>
+<% include ../partials/footer %>
