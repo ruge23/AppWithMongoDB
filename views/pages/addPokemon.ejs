@@ -1,0 +1,13 @@
+<% include ../partials/header %>
+<div class="container">
+    <div class="bloque">
+        <p>Agrega un nuevo Pokemon!</p>
+        <form action="/<%= nombre %>/newPokemon" method="post">
+            <input type="text" name="nombre" placeholder="Nombre">
+            <input type="text" name="tipo" placeholder="Tipo">
+            <input type="text" name="level" placeholder="Level">
+            <input type="text" name="imgURL" placeholder="Img Url">
+            <button>Nuevo Pokemon!</button>            
+        </form>
+    </div>
+<% include ../partials/footer %>

@@ -1,0 +1,25 @@
+<% include ../partials/header %>
+<div class="container">
+    <div class="bloque">
+        <h3>Elegiste <%= pokemon.nombre %>! </h3>
+        <img src="<%= pokemon.imgURL %>" class="profileImg" alt="">
+        <p>Tipo: <%= pokemon.tipo %></p>
+        <p>Level: <%= pokemon.level %></p>
+        <p>Ataque: <%= pokemon.ataque %></p>
+        <form action="/<%= nombre %>/newAttack/<%= pokemon.nombre %>" method="get">
+            <input type="submit" value="Agregar un nuevo ataque!">
+        </form>
+        <form action="/<%= nombre %>/edit/<%= pokemon.nombre %>" method="get">
+            <input type="submit" value="Edita tu Pokemon">
+        </form>
+        <form action="/<%= nombre %>/delete/<%= pokemon.nombre %>" method="post">
+            <button>Eliminar pokemon</button>
+        </form>
+        <div class="comentarios">
+            <form name="coment" action="/<%= nombre %>/comment/<%= pokemon.nombre %>" method="post">
+                <input type="text" name="texto" value="" placeholder="Ingrese un comentario">
+                <button>Agregar comentario</button>
+            </form>
+        </div>
+    </div>
+<% include ../partials/footer %>

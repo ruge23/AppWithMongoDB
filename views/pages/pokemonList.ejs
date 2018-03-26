@@ -5,8 +5,13 @@
         <p><%= mensaje %></p>
         <ul>
             <% for(let i=0 ; i<pokemon.length ; i++){ %>
-                <li><a href="/<%= nombre %>/pokemon/<%= pokemon[i].nombre %>"><%= pokmemon[i].nombre %></a></li>
+                <li><a href="/<%= nombre %>/pokemon/<%= pokemon[i].nombre %>"><%= pokemon[i].nombre %></a></li>
             <% } %>
         </ul>
+        <div class="addPokemon">
+            <form action="/<%= nombre %>/newPokemon" method="get">
+                <input type="submit" value="Agregar un nuevo Pokemon!">
+            </form>
+        </div>
     </div>
 <% include ../partials/footer %>

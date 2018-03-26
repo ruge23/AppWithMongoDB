@@ -26,3 +26,30 @@ nodejsLogo{
     margin: auto;
     text-align: center;
 }
+ul{
+    list-style-type : none;
+}
+a{
+    text-align: center;
+}
+li{
+    text-align: left;
+    margin-bottom: 5px;
+}
+input{
+    margin-bottom: 1opx;
+    width: 250px;
+}
+.profileImg{
+    width: 200px;
+}
+.comentarios{
+    width: 300px;
+    margin-top: 30px;
+}
+.comentariosLista{
+    margin-bottom: 10px;
+}
+.date{
+    float: right;
+}
