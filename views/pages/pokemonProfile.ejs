@@ -5,7 +5,11 @@
         <img src="<%= pokemon.imgURL %>" class="profileImg" alt="">
         <p>Tipo: <%= pokemon.tipo %></p>
         <p>Level: <%= pokemon.level %></p>
-        <p>Ataque: <%= pokemon.ataque %></p>
+        <p>Ataque: </p><ul>
+            <% for(let i=0; i<pokemon.ataque.length; i++){ %>
+                <li><%= pokemon.ataque[i].tipo %></li>
+            <% } %>
+        </ul>
         <form action="/<%= nombre %>/newAttack/<%= pokemon.nombre %>" method="get">
             <input type="submit" value="Agregar un nuevo ataque!">
         </form>

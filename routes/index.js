@@ -1,5 +1,7 @@
 const express = require('express');
 const Pokemon = require('../models/pokemon')
+const Ataque = require('../models/ataques')
+const Comentarios = require('../models/comentarios')
 
 const router = express.Router();
 
@@ -39,7 +41,7 @@ router.post('/:nombre/newPokemon', (req, res)=>{
     console.log(req.body);
     Pokemon.create(req.body, (err, poke)=>{
         if(err) return res.send(err);
-        res.redirect(`${req.params.nombre}/pokemon/${poke.nombre}`)
+        res.redirect(`/${req.params.nombre}/pokemon/${poke.nombre}`)
     })
 })
 
@@ -77,6 +79,23 @@ router.post('/:nombre/delete/:pokemon', (req, res)=>{
     Pokemon.remove({nombre: req.params.pokemon}, (err)=>{
         if(err) return err;
         res.redirect(`/${req.params.nombre}/pokemon`);
+    })
+})
+
+// Agregar ataque
+router.get('/:nombre/newAttack/:pokemon', (req, res)=>{
+    res.render('addAttack',{
+        nombre: req.params.nombre,
+        pokemon: req.params.pokemon
+    })
+})
+
+router.post('/:nombre/newAttack/:pokemon', (req, res)=>{
+    Ataque.create(req.body, (err, attack)=>{
+        console.log('ataque',attack)
+        Pokemon.update({nombre: req.params.pokemon}, {$push: {ataque: attack}}, (err, pokemon)=>{
+            res.redirect(`/${req.params.nombre}/pokemon/${req.params.pokemon}`);
+        })
     })
 })
 

@@ -2,8 +2,8 @@ const mongoose = require('mongoose');
 
 const ataqueSchema = mongoose.Schema({
     nombre: String,
-    danio: Number,
     tipo: String,
+    danio: Number,
 })
 
 const Ataque = mongoose.model('ataques', ataqueSchema);
