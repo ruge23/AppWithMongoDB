@@ -56,7 +56,29 @@ router.get('/:nombre/pokemon/:pokemon', (req, res)=>{
         })
 })
 
+// editar pokemon
+router.get('/:nombre/edit/:pokemon', (req, res)=>{
+    Pokemon.findOne({nombre: req.params.pokemon}, (err, poke)=>{
+        res.render('editPokemon', {
+            pokemon: poke,
+            nombre: req.params.nombre,
+        })
+    })
+})
 
+router.post('/:nombre/edit/:pokemon',(req, res)=>{
+    Pokemon.update({nombre: req.params.pokemon}, req.body, (err, data)=>{
+        res.redirect(`/${req.params.nombre}/pokemon/${req.body.nombre}`)
+    })
+})
+
+// Borrar pokemon
+router.post('/:nombre/delete/:pokemon', (req, res)=>{
+    Pokemon.remove({nombre: req.params.pokemon}, (err)=>{
+        if(err) return err;
+        res.redirect(`/${req.params.nombre}/pokemon`);
+    })
+})
 
 
 module.exports = router;

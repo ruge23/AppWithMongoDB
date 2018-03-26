@@ -1,0 +1,12 @@
+<% include ../partials/header %>
+<div class="container">
+    <div class="bloque">
+        <p>Edita a <%= pokemon.nombre %></p>
+        <form action="/<%= nombre %>/edit/<%= pokemon.nombre %>" method="post">
+            <input type="text" name="nombre" value="<%= pokemon.nombre %>" />
+            <input type="text" name="tipo" value="<%= pokemon.tipo %>" />
+            <input type="text" name="level" value="<%= pokemon.level %>" />
+            <input type="text" name="imgURL" value="<%= pokemon.imgURL %>" />
+        </form>
+    </div>
+<% include ../partials/footer %>
